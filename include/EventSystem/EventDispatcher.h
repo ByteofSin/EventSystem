@@ -3,6 +3,9 @@
 namespace byteofsin::eventsystem {
     class EventDispatcher {
         public:
-            EventDispatcher();
+            EventDispatcher() = default;
+
+            
+
     };
 };
