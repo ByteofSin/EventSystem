@@ -5,6 +5,6 @@ namespace byteofsin::eventsystem {
         public:
             EventReciever() = default;
 
-            
+            void OnRecieve();
     };
 };

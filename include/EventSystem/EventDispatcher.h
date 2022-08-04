@@ -5,7 +5,7 @@ namespace byteofsin::eventsystem {
         public:
             EventDispatcher() = default;
 
-            
+            void Send();
 
     };
 };
