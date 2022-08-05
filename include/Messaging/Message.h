@@ -1,5 +1,5 @@
-// Interface class to represent various events.
-// Also acts as a default for generic events
+// Interface class to represent various messages.
+// Also acts as a default for generic messages
 
 #pragma once
 
@@ -7,11 +7,10 @@
 #include <map>
 
 
-namespace byteofsin::eventsystem {
-    class Event {
+namespace byteofsin::messaging {
+    class Message {
         public:
-            Event(){};
-            virtual ~Event() = 0{};
+            Message(){};
             // Data access
             void Add(std::string key, std::string value, bool forceUpdate = false) {
                 if(variables.find(key) == variables.end()){
@@ -27,13 +26,10 @@ namespace byteofsin::eventsystem {
             }
 
         protected:
-            // Event& operator = (const Event&) {
-            //     return *this;
-            // };
-
-            std::map<std::string, std::string> variables;
             int priority = 0;
         private:
+            // Private to allow each message type to implement their own storage format
+            std::map<std::string, std::string> variables;
     }; 
 
 };

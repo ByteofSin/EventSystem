@@ -1,24 +1,24 @@
-enable_testing()
-
-set(This Event_System)
+set(This Messaging_System_Tests)
 
 set(Sources
     # Helpers Classes
-    src/TestEvent.cpp
+    helpers/TestMessage.cpp
+    #helpers/TestReciever.cpp
 
     # Tests
-    src/EventObject.test.cpp
-    src/EventDispatchAndRetrieve.test.cpp
+    src/Message.test.cpp
+    src/MessageTransmission.test.cpp
 )
 
 add_executable(${This} ${Sources})
 set_target_properties(${This} PROPERTIES
     FOLDER Tests
+    LINKER_LANGUAGE CXX
 )
 
 target_link_libraries(${This} PUBLIC
     gtest_main
-    ByteofSin_Events
+    ByteofSin_Messaging
 )
 
 include(GoogleTest)

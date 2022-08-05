@@ -1,21 +1,23 @@
-set(This ByteofSin_Events)
+set(This ByteofSin_Messaging)
 
 set(Headers
-    include/EventSystem/Event.h
-    include/EventSystem/EventCatagories.h
-    include/EventSystem/EventDispatcher.h
-    include/EventSystem/EventReciever.h
-    include/EventSystem/EventSystem.h
+    # Core
+    include/Messaging/Message.h
+    include/Messaging/Router.h
+
+    # Components
+    include/Messaging/Reciever.h
 )
 
 set(Sources
-    src/EventDispatcher.cpp
+    src/temp.cpp
 )
 
 add_library(${This} STATIC ${Headers} ${Sources})
 
 set_target_properties(${This} PROPERTIES
     FOLDER Libraries
+    LINKER_LANGUAGE CXX
 )
 
 target_include_directories(${This} PUBLIC include)

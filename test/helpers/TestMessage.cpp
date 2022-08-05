@@ -1,12 +1,12 @@
 #pragma once
 
-#include <EventSystem/Event.h>
+#include <Messaging/Message.h>
 #include <string>
 
-class TestEvent : public byteofsin::eventsystem::Event {
+class TestMessage : public byteofsin::messaging::Message {
     public:
-        TestEvent(){}
-        ~TestEvent() {};
+        TestMessage(){}
+        ~TestMessage() {};
 
         // void Add(std::string key, std::string value) {
         //     __super::Add(key, value);
