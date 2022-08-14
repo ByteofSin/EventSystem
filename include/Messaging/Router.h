@@ -26,7 +26,7 @@ namespace byteofsin::messaging {
             void AddMessage(Message message){
                 messages.push(message);
             };
-
+            
             // Sends messages to each component
             void Notify(){};
         protected:
