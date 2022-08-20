@@ -28,7 +28,7 @@ namespace byteofsin::messaging {
             }
 
             void Send(Message message){
-                //this->messageRouter->AddMessage(message);
+                this->messageRouter->AddMessage(message);
             }
 
             virtual void OnMessageRecieved(Message message){

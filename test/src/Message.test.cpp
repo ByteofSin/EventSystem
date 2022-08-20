@@ -8,9 +8,10 @@
 
 #include <string>
 
+#define Message_Test_Name Message_Object
 
 // Creating an object
-TEST(Messaging_System, Message_Creation){
+TEST(Message_Test_Name, Message_Creation){
     TestMessage* testMessage = new TestMessage();   
     EXPECT_FALSE(testMessage == NULL) << "Message object set to NULL";
 
@@ -18,21 +19,19 @@ TEST(Messaging_System, Message_Creation){
 }
 
 // Adding variables and retrieving them 
-TEST(Messaging_System, Message_Variable_Insertion_and_Retrieval){
+TEST(Message_Test_Name, Message_Variable_Insertion_and_Retrieval){
     TestMessage* testMessage = new TestMessage(); 
     std::string expectedValue = "Tested Event";
 
     testMessage->Add("Name", "Tested Event");
-    
 
-
-    EXPECT_TRUE(testMessage->Get("Name") == expectedValue);
+    EXPECT_TRUE(testMessage->Get("Name") == "Tested Event") << "Message failed to retrieve value from key\nError: " + testMessage->Get("Name");
 
     delete testMessage;
 }
 
 // Adding multiple variables and retrieving them
-TEST(Messaging_System, Message_MultiVariable_Insertion_and_Retrieval){
+TEST(Message_Test_Name, Message_MultiVariable_Insertion_and_Retrieval){
     TestMessage* testMessage = new TestMessage();
 
     // Expected Values
@@ -46,18 +45,20 @@ TEST(Messaging_System, Message_MultiVariable_Insertion_and_Retrieval){
     testMessage->Add("Key C", "Value C");
 
     
-    EXPECT_TRUE(testMessage->Get("Key A") == valueA) 
+    EXPECT_TRUE(testMessage->Get("Key A") == "Value A") 
         << "Event variable value for key A is incorrect";
     
-    EXPECT_TRUE(testMessage->Get("Key B") == valueB)
+    EXPECT_TRUE(testMessage->Get("Key B") == "Value B")
         << "Event variable value for key B is incorrect";
     
-    EXPECT_TRUE(testMessage->Get("Key C") == valueC)
+    EXPECT_TRUE(testMessage->Get("Key C") == "Value C")
         << "Event variable value for key C is incorrect";
+
+    delete testMessage;
 }
 
 // Adding duplicate keys
-TEST(Messaging_System, Message_Duplicate_Variable_Insertion){
+TEST(Message_Test_Name, Message_Duplicate_Variable_Insertion){
     TestMessage* testMessage = new TestMessage();
 
     // Expected Values
@@ -79,4 +80,6 @@ TEST(Messaging_System, Message_Duplicate_Variable_Insertion){
     EXPECT_TRUE(testMessage->Get("Key") == updatedValue) 
         << "Event variable not updated when given force update flag";
 
+        
+    delete testMessage;
 }

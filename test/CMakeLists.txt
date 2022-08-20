@@ -1,4 +1,4 @@
-set(This Messaging_System_Tests)
+set(This Messaging_System)
 
 set(Sources
     # Helpers Classes
